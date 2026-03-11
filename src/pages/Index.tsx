@@ -50,20 +50,6 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="relative" style={{ borderTop: '1px solid hsl(210,10%,20%)' }}>
-          <div className="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-0">
-            {[
-              { num: "55 000 ₽", label: "Общая ценность в месяц" },
-              { num: "25 000 ₽", label: "Ваша инвестиция" },
-              { num: "1 место", label: "Осталось в этом месяце" },
-            ].map((item, i) => (
-              <div key={i} className={`py-6 px-8 ${i === 0 ? 'pl-0' : ''}`} style={{ borderRight: i < 2 ? '1px solid hsl(210,10%,20%)' : 'none' }}>
-                <div className="text-3xl font-bold text-amber mb-1">{item.num}</div>
-                <div className="text-sm font-sans" style={{ color: 'hsl(210,10%,55%)' }}>{item.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ЯДРО ОФФЕРА */}
