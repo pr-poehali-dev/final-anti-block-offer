@@ -16,7 +16,7 @@ const messengerLinks = [
     id: "max",
     label: "MAX",
     icon: "MessageSquare",
-    url: `https://max.ru/im?sel=+${PHONE_FOOTER}`,
+    url: "https://max.ru/u/f9LHodD0cOK0DpfRIJqdv315aqhwKVGmepqspth7WB1LcW3cUdQW880KWDM",
   },
 ];
 
