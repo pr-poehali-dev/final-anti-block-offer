@@ -1,12 +1,44 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+const SEND_LEAD_URL = "https://functions.poehali.dev/c58cc69c-f818-4d2e-8a64-1d8469a295bf";
+const PHONE = "89120032181";
+
+const messengerLinks = [
+  {
+    id: "telegram",
+    label: "Telegram",
+    icon: "Send",
+    url: `https://t.me/${PHONE}`,
+  },
+  {
+    id: "whatsapp",
+    label: "WhatsApp",
+    icon: "MessageCircle",
+    url: `https://wa.me/7${PHONE.slice(1)}`,
+  },
+  {
+    id: "max",
+    label: "MAX",
+    icon: "MessageSquare",
+    url: `https://max.ru/im?sel=${PHONE}`,
+  },
+];
+
 const Index = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", company: "", messenger: "" });
   const [submitted, setSubmitted] = useState(false);
   const [messengerError, setMessengerError] = useState(false);
+  const [messengerModal, setMessengerModal] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleMessengerClick = (url: string) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).ym?.(107193309, 'reachGoal', 'messendjer2');
+    window.open(url, '_blank');
+    setMessengerModal(false);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.messenger) {
       setMessengerError(true);
@@ -15,11 +47,52 @@ const Index = () => {
     setMessengerError(false);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).ym?.(107193309, 'reachGoal', 'sessiya');
+    await fetch(SEND_LEAD_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    }).catch(() => null);
     setSubmitted(true);
   };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+
+      {/* МОДАЛКА МЕССЕНДЖЕРОВ */}
+      {messengerModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
+          onClick={() => setMessengerModal(false)}
+        >
+          <div
+            className="w-full max-w-sm p-8 clip-corner-lg"
+            style={{ backgroundColor: 'hsl(210,14%,10%)', border: '1px solid hsl(210,10%,22%)' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="font-bold uppercase tracking-widest text-sm">Написать в мессенджер</h3>
+              <button onClick={() => setMessengerModal(false)} className="hover:opacity-60 transition-opacity">
+                <Icon name="X" size={18} />
+              </button>
+            </div>
+            <div className="flex flex-col gap-3">
+              {messengerLinks.map(m => (
+                <button
+                  key={m.id}
+                  onClick={() => handleMessengerClick(m.url)}
+                  className="flex items-center gap-4 px-5 py-4 font-sans text-sm tracking-wide uppercase clip-corner-sm transition-all hover:opacity-80"
+                  style={{ backgroundColor: 'hsl(210,15%,8%)', border: '1px solid hsl(210,10%,22%)', color: 'hsl(210,10%,70%)' }}
+                >
+                  <Icon name={m.icon} size={20} className="text-amber" fallback="MessageCircle" />
+                  {m.label}
+                  <span className="ml-auto text-xs" style={{ color: 'hsl(210,10%,45%)' }}>{PHONE}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* HERO */}
       <section className="relative min-h-screen flex flex-col justify-center grid-geo overflow-hidden">
@@ -52,9 +125,10 @@ const Index = () => {
               <Icon name="Calendar" size={16} />
               Записаться на стратегическую сессию
             </a>
-            <a href="#system" className="inline-flex items-center justify-center gap-3 border text-foreground px-8 py-4 font-medium text-sm tracking-widest uppercase clip-corner hover:text-amber transition-colors font-sans" style={{ borderColor: 'hsl(210,10%,30%)' }}>
-              Узнать о системе
-            </a>
+            <button onClick={() => setMessengerModal(true)} className="inline-flex items-center justify-center gap-3 border text-foreground px-8 py-4 font-medium text-sm tracking-widest uppercase clip-corner hover:text-amber transition-colors font-sans" style={{ borderColor: 'hsl(210,10%,30%)' }}>
+              <Icon name="MessageCircle" size={16} />
+              Написать в мессенджер
+            </button>
           </div>
         </div>
 
@@ -268,6 +342,10 @@ const Index = () => {
                 <Icon name="Calendar" size={16} />
                 Записаться на сессию
               </a>
+              <button onClick={() => setMessengerModal(true)} className="w-full inline-flex items-center justify-center gap-3 border text-foreground px-6 py-4 font-medium text-sm tracking-widest uppercase clip-corner hover:text-amber transition-colors font-sans mt-3" style={{ borderColor: 'hsl(210,10%,30%)' }}>
+                <Icon name="MessageCircle" size={16} />
+                Написать в мессенджер
+              </button>
             </div>
           </div>
         </div>
