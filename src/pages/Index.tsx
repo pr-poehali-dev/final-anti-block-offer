@@ -3,25 +3,20 @@ import Icon from "@/components/ui/icon";
 
 const SEND_LEAD_URL = "https://functions.poehali.dev/c58cc69c-f818-4d2e-8a64-1d8469a295bf";
 const PHONE = "89120032181";
+const PHONE_FOOTER = "79120032181";
 
 const messengerLinks = [
   {
     id: "telegram",
     label: "Telegram",
     icon: "Send",
-    url: `https://t.me/${PHONE}`,
-  },
-  {
-    id: "whatsapp",
-    label: "WhatsApp",
-    icon: "MessageCircle",
-    url: `https://wa.me/7${PHONE.slice(1)}`,
+    url: `https://t.me/+${PHONE_FOOTER}`,
   },
   {
     id: "max",
     label: "MAX",
     icon: "MessageSquare",
-    url: `https://max.ru/im?sel=${PHONE}`,
+    url: `https://max.ru/im?sel=+${PHONE_FOOTER}`,
   },
 ];
 
