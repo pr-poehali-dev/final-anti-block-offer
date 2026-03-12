@@ -393,23 +393,22 @@ const Index = () => {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ borderTop: '1px solid hsl(210,10%,16%)', backgroundColor: 'hsl(210,15%,5%)' }} className="py-8">
+      <footer style={{ borderTop: '1px solid hsl(210,10%,16%)', backgroundColor: 'hsl(210,15%,5%)' }} className="py-6">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-3">
-            <Icon name="Shield" size={20} className="text-amber" />
-            <span className="font-bold uppercase tracking-widest text-sm">Протокол Анти-Блок</span>
+            <Icon name="Shield" size={18} className="text-amber" />
+            <div>
+              <span className="font-bold uppercase tracking-widest text-sm">Протокол Анти-Блок</span>
+              <span className="hidden md:inline text-xs ml-3" style={{ color: 'hsl(210,10%,40%)' }}>Профессиональная бухгалтерская защита для строительного бизнеса</span>
+            </div>
           </div>
-          <div className="text-xs font-sans" style={{ color: 'hsl(210,10%,40%)' }}>
-            Профессиональная бухгалтерская защита для строительного бизнеса
-          </div>
-        </div>
-        <div className="max-w-6xl mx-auto px-6 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center gap-3" style={{ borderTop: '1px solid hsl(210,10%,12%)' }}>
-          <span className="text-xs font-sans" style={{ color: 'hsl(210,10%,35%)' }}>
-            ООО «Ваш Персональный Бухгалтер» · ИНН: 9721242210
-          </span>
-          <div className="flex gap-4 text-xs font-sans">
-            <a href="#" style={{ color: 'hsl(210,10%,45%)' }} className="hover:opacity-70 transition-opacity">Политика конфиденциальности</a>
-            <a href="#" style={{ color: 'hsl(210,10%,45%)' }} className="hover:opacity-70 transition-opacity">Пользовательское соглашение</a>
+          <div className="flex flex-col md:flex-row items-center gap-3 text-xs font-sans" style={{ color: 'hsl(210,10%,38%)' }}>
+            <span>ООО «Ваш Персональный Бухгалтер» · ИНН: 9721242210</span>
+            <span className="hidden md:inline" style={{ color: 'hsl(210,10%,22%)' }}>·</span>
+            <div className="flex gap-4">
+              <a href="#" className="hover:opacity-70 transition-opacity">Политика конфиденциальности</a>
+              <a href="#" className="hover:opacity-70 transition-opacity">Пользовательское соглашение</a>
+            </div>
           </div>
         </div>
       </footer>
