@@ -456,6 +456,15 @@ const Index = () => {
                 <Icon name="Calendar" size={18} />
                 Записаться на стратегическую сессию
               </button>
+              <button
+                type="button"
+                onClick={() => setMessengerModal(true)}
+                className="w-full inline-flex items-center justify-center gap-3 border text-foreground px-6 py-4 font-medium text-sm tracking-widest uppercase clip-corner hover:text-amber transition-colors font-sans mt-3"
+                style={{ borderColor: 'hsl(210,10%,30%)' }}
+              >
+                <Icon name="MessageCircle" size={18} />
+                Написать в мессенджер
+              </button>
               <p className="text-center text-xs font-sans mt-4" style={{ color: 'hsl(210,10%,40%)' }}>
                 Нажимая кнопку, вы соглашаетесь на обработку персональных данных
               </p>
