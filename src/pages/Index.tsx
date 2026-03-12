@@ -4,9 +4,17 @@ import Icon from "@/components/ui/icon";
 const Index = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", company: "", messenger: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [messengerError, setMessengerError] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.messenger) {
+      setMessengerError(true);
+      return;
+    }
+    setMessengerError(false);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).ym?.(107193309, 'reachGoal', 'sessiya');
     setSubmitted(true);
   };
 
@@ -327,7 +335,9 @@ const Index = () => {
                 </div>
               </div>
               <div className="mb-6">
-                <label className="block text-xs tracking-[0.2em] uppercase font-sans mb-3" style={{ color: 'hsl(210,10%,55%)' }}>Удобный канал для связи</label>
+                <label className="block text-xs tracking-[0.2em] uppercase font-sans mb-3" style={{ color: messengerError ? 'hsl(0,70%,55%)' : 'hsl(210,10%,55%)' }}>
+                  Удобный канал для связи{messengerError && <span className="ml-2 normal-case tracking-normal">— выберите один из вариантов</span>}
+                </label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {[
                     { id: "whatsapp", label: "WhatsApp", icon: "MessageCircle" },
@@ -338,7 +348,7 @@ const Index = () => {
                     <button
                       key={m.id}
                       type="button"
-                      onClick={() => setFormData({ ...formData, messenger: m.id })}
+                      onClick={() => { setFormData({ ...formData, messenger: m.id }); setMessengerError(false); }}
                       className="flex flex-col items-center gap-2 py-4 px-3 font-sans text-xs tracking-wide uppercase transition-all clip-corner-sm"
                       style={{
                         backgroundColor: formData.messenger === m.id ? 'hsla(38,95%,52%,0.12)' : 'hsl(210,15%,8%)',
