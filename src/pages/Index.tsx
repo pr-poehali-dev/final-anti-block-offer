@@ -233,15 +233,9 @@ const Index = () => {
                 <h3 className="text-2xl font-bold uppercase mb-4">{item.title}</h3>
                 <p className="text-sm leading-relaxed font-sans mb-6" style={{ color: 'hsl(210,10%,60%)' }}>{item.text}</p>
                 <div className="pt-4" style={{ borderTop: '1px solid hsl(210,10%,20%)' }}>
-                  <div className="text-xs font-sans uppercase tracking-widest mb-1" style={{ color: 'hsl(210,10%,45%)' }}>Рыночная ценность</div>
-                  {i === 0 ? (
-                    <>
-                      <div className="text-2xl font-bold text-amber line-through opacity-60">{item.value}</div>
-                      <div className="text-green-400 text-sm font-sans mt-1">Включено в пакет</div>
-                    </>
-                  ) : (
-                    <div className="text-green-400 text-sm font-sans">{item.value}</div>
-                  )}
+                  <div className="text-xs font-sans uppercase tracking-widest mb-1" style={{ color: 'hsl(210,10%,45%)' }}>Рыночная цена</div>
+                  <div className="text-2xl font-bold line-through" style={{ color: 'hsl(38,95%,52%)', opacity: 0.6 }}>{item.value}</div>
+                  <div className="text-sm font-sans mt-1" style={{ color: 'hsl(142,70%,50%)' }}>Включено в пакет</div>
                 </div>
               </div>
             ))}
