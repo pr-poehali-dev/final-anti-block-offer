@@ -403,6 +403,15 @@ const Index = () => {
             Профессиональная бухгалтерская защита для строительного бизнеса
           </div>
         </div>
+        <div className="max-w-6xl mx-auto px-6 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center gap-3" style={{ borderTop: '1px solid hsl(210,10%,12%)' }}>
+          <span className="text-xs font-sans" style={{ color: 'hsl(210,10%,35%)' }}>
+            ООО «Ваш Персональный Бухгалтер» · ИНН: 9721242210
+          </span>
+          <div className="flex gap-4 text-xs font-sans">
+            <a href="#" style={{ color: 'hsl(210,10%,45%)' }} className="hover:opacity-70 transition-opacity">Политика конфиденциальности</a>
+            <a href="#" style={{ color: 'hsl(210,10%,45%)' }} className="hover:opacity-70 transition-opacity">Пользовательское соглашение</a>
+          </div>
+        </div>
       </footer>
 
     </div>
