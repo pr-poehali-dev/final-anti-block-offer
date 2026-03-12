@@ -397,13 +397,16 @@ const Index = () => {
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-3">
             <Icon name="Shield" size={18} className="text-amber" />
-            <div>
+            <div className="flex flex-col gap-0.5">
               <span className="font-bold uppercase tracking-widest text-sm">Протокол Анти-Блок</span>
-              <span className="hidden md:inline text-xs ml-3" style={{ color: 'hsl(210,10%,40%)' }}>Профессиональная бухгалтерская защита для строительного бизнеса</span>
+              <span className="text-xs" style={{ color: 'hsl(210,10%,40%)' }}>Профессиональная бухгалтерская защита для строительного бизнеса</span>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row items-center gap-3 text-xs font-sans" style={{ color: 'hsl(210,10%,38%)' }}>
-            <span>ООО «Ваш Персональный Бухгалтер» · ИНН: 9721242210</span>
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-3 text-xs font-sans" style={{ color: 'hsl(210,10%,38%)' }}>
+            <div className="flex flex-col gap-0.5">
+              <span>ООО «Ваш Персональный Бухгалтер»</span>
+              <span>ИНН: 9721242210</span>
+            </div>
             <span className="hidden md:inline" style={{ color: 'hsl(210,10%,22%)' }}>·</span>
             <div className="flex gap-4">
               <a href="#" className="hover:opacity-70 transition-opacity">Политика конфиденциальности</a>
