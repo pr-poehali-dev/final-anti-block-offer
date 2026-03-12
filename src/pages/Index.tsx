@@ -2,7 +2,7 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
-  const [formData, setFormData] = useState({ name: "", phone: "", company: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", company: "", messenger: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -326,6 +326,33 @@ const Index = () => {
                   />
                 </div>
               </div>
+              <div className="mb-6">
+                <label className="block text-xs tracking-[0.2em] uppercase font-sans mb-3" style={{ color: 'hsl(210,10%,55%)' }}>Удобный мессенджер для связи</label>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {[
+                    { id: "whatsapp", label: "WhatsApp", icon: "MessageCircle" },
+                    { id: "telegram", label: "Telegram", icon: "Send" },
+                    { id: "viber", label: "Viber", icon: "Phone" },
+                    { id: "phone", label: "Звонок", icon: "PhoneCall" },
+                  ].map((m) => (
+                    <button
+                      key={m.id}
+                      type="button"
+                      onClick={() => setFormData({ ...formData, messenger: m.id })}
+                      className="flex flex-col items-center gap-2 py-4 px-3 font-sans text-xs tracking-wide uppercase transition-all clip-corner-sm"
+                      style={{
+                        backgroundColor: formData.messenger === m.id ? 'hsla(38,95%,52%,0.12)' : 'hsl(210,15%,8%)',
+                        border: formData.messenger === m.id ? '1px solid hsl(38,95%,52%)' : '1px solid hsl(210,10%,22%)',
+                        color: formData.messenger === m.id ? 'hsl(38,95%,52%)' : 'hsl(210,10%,55%)',
+                      }}
+                    >
+                      <Icon name={m.icon} size={20} fallback="MessageCircle" />
+                      {m.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <div className="mb-8">
                 <label className="block text-xs tracking-[0.2em] uppercase font-sans mb-2" style={{ color: 'hsl(210,10%,55%)' }}>Название компании</label>
                 <input
