@@ -327,12 +327,12 @@ const Index = () => {
                 </div>
               </div>
               <div className="mb-6">
-                <label className="block text-xs tracking-[0.2em] uppercase font-sans mb-3" style={{ color: 'hsl(210,10%,55%)' }}>Удобный мессенджер для связи</label>
+                <label className="block text-xs tracking-[0.2em] uppercase font-sans mb-3" style={{ color: 'hsl(210,10%,55%)' }}>Удобный канал для связи</label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {[
                     { id: "whatsapp", label: "WhatsApp", icon: "MessageCircle" },
                     { id: "telegram", label: "Telegram", icon: "Send" },
-                    { id: "viber", label: "Viber", icon: "Phone" },
+                    { id: "vkmax", label: "VK MAX", icon: "MessageSquare" },
                     { id: "phone", label: "Звонок", icon: "PhoneCall" },
                   ].map((m) => (
                     <button
